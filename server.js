@@ -1,10 +1,12 @@
 const express = require("express");
-const app = express();
+const connectDB = require("./config/db");
 
-const port = process.env.Port || 5000;
+const app = express();
+// Connect Database
+connectDB();
 
 app.get("/", (req, res) => res.send("api running"));
 
-app.listen(port, () => {
-  console.log("server connected on" + port);
-});
+const port = process.env.Port || 5000;
+
+app.listen(port, () => {});
