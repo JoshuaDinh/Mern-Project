@@ -10,7 +10,6 @@ const User = require("../../models/User");
 // @route  Post api/users
 // @desc   Register User
 // @access Public
-// @route  GET api/users
 
 router.post(
   "/",
@@ -33,7 +32,9 @@ router.post(
       // See if User exists
       let user = await User.findOne({ email });
       if (user) {
-        res.status(400).json({ errors: [{ message: "User already exists" }] });
+        return res
+          .status(400)
+          .json({ errors: [{ message: "User already exists" }] });
       }
 
       // Get User Gravatar
