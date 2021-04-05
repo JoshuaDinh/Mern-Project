@@ -18,4 +18,4 @@ app.use("/api/auth", require("./routes/api/auth"));
 
 const port = process.env.Port || 5000;
 
-app.listen(port, () => {});
+app.listen(port);
